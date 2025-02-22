@@ -12,7 +12,7 @@ env:
 
 jobs:
   publish:
-    name: Run and publish release to Maven Central
+    name: Publish & Release to Maven Central
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -75,7 +75,7 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
-        run: ./gradlew publish --stacktrace
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
 
       - name: Prep openapi-docs
         run: ./gradlew dokkaGenerate
@@ -100,7 +100,7 @@ jobs:
           SINGLE_COMMIT: true
 
   release:
-    name: Create release
+    name: Create Github release
     needs: publish
     runs-on: ubuntu-latest
     permissions:
