@@ -1,209 +1,156 @@
-# AES-Kotlin
+<div align="center">
 
-A pure Kotlin implementation of the AES block cipher algorithm and all common modes of operation (CBC, CFB, CTR, ECB, and OFB).
+# AES Encryption in Kotlin
+Enjoy secure encryption with AES in Kotlin! 🚀
 
-> \[!Note]
-> This repository is a Kotlin port of the original [codebase](https://github.com/ricmoo/aes-js).
+![Kotlin](https://img.shields.io/badge/Kotlin-7f52ff?style=flat-square&logo=kotlin&logoColor=white)
+![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin%20Multiplatform-4c8d3f?style=flat-square&logo=kotlin&logoColor=white)
+
+![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
+![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
+![badge-desktop](http://img.shields.io/badge/platform-jvm-7f52ff.svg?style=flat)
+![badge-js](http://img.shields.io/badge/platform-web-FDD835.svg?style=flat)
+
+This repository provides a Kotlin implementation of the **Advanced Encryption Standard (AES)**, ported from the original [aes-js](https://github.com/ricmoo/aes-js) library. It supports AES encryption and decryption with various modes of operation, including **ECB**, **CBC**, **CFB**, **OFB**, and **CTR**.
+
+</div>
+
+---
 
 ## Features
 
-- Pure Kotlin (with no dependencies, or optional BouncyCastle for advanced use cases)
-- Supports all key sizes (128-bit, 192-bit, and 256-bit)
-- Supports all common modes of operation (CBC, CFB, CTR, ECB, and OFB)
-- Works on the JVM and Android
+- **AES Encryption and Decryption**: Supports 128-bit, 192-bit, and 256-bit keys.
+- **Modes of Operation**:
+    - **ECB (Electronic Codebook)**
+    - **CBC (Cipher Block Chaining)**
+    - **CFB (Cipher Feedback)**
+    - **OFB (Output Feedback)**
+    - **CTR (Counter)**
+- **PKCS#7 Padding**: Automatically pads and strips data for block alignment.
+- **Easy-to-Use API**: Simple and intuitive methods for encryption and decryption.
 
 ## Installation
 
-### Gradle (Kotlin DSL)
-
-Add the following to your `build.gradle.kts` file:
+Add the following dependency to your `build.gradle.kts` file:
 
 ```kotlin
-dependencies {
-    implementation("io.github.niyajali:aes-kotlin:1.0.0")
-}
+implementation("io.github.niyajali:aes-kotlin:1.0.0")
 ```
 
 ## Usage
 
-### Keys
+### 1. AES Encryption Basics
 
-All keys must be 128 bits (16 bytes), 192 bits (24 bytes), or 256 bits (32 bytes) long. You can generate keys from passwords using a key derivation function like PBKDF2.
-
+#### Initialize AES with a Key
 ```kotlin
-import javax.crypto.spec.SecretKeySpec
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.PBEKeySpec
-
-// Generate a 256-bit key from a password
-val password = "myPassword".toCharArray()
-val salt = "mySalt".toByteArray()
-val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256")
-val spec = PBEKeySpec(password, salt, 65536, 256)
-val key = factory.generateSecret(spec).encoded
-val secretKey = SecretKeySpec(key, "AES")
+val key = "2b7e151628aed2a6abf7158809cf4f3c".hexToBytes() // 128-bit key
+val aes = AESEncryption(key)
 ```
 
-### Common Modes of Operation
-
-#### CTR - Counter (Recommended)
-
+#### Encrypt and Decrypt Data
 ```kotlin
-import javax.crypto.Cipher
-import javax.crypto.spec.IvParameterSpec
+val plaintext = "Hello, AES!".toByteArray()
+val ciphertext = aes.encrypt(plaintext)
+val decryptedText = aes.decrypt(ciphertext)
 
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-val iv = "1234567890abcdef".toByteArray() // 16-byte initialization vector
-
-val cipher = Cipher.getInstance("AES/CTR/NoPadding")
-cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-
-val plaintext = "Hello, Kotlin AES!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+println("Ciphertext: ${ciphertext.toHexString()}")
+println("Decrypted Text: ${String(decryptedText)}")
 ```
 
-#### CBC - Cipher-Block Chaining (Recommended)
+### 2. Modes of Operation
 
+#### ECB (Electronic Codebook)
 ```kotlin
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-val iv = "1234567890abcdef".toByteArray() // 16-byte initialization vector
-
-val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
-cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-
-val plaintext = "Hello, Kotlin AES!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+val ecb = ModeOfOperationECB(key)
+val encrypted = ecb.encrypt(plaintext)
+val decrypted = ecb.decrypt(encrypted)
 ```
 
-#### CFB - Cipher Feedback
-
+#### CBC (Cipher Block Chaining)
 ```kotlin
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-val iv = "1234567890abcdef".toByteArray() // 16-byte initialization vector
-
-val cipher = Cipher.getInstance("AES/CFB/NoPadding")
-cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-
-val plaintext = "Hello, Kotlin AES!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+val iv = "000102030405060708090a0b0c0d0e0f".hexToBytes() // Initialization Vector
+val cbc = ModeOfOperationCBC(key, iv)
+val encrypted = cbc.encrypt(plaintext)
+val decrypted = cbc.decrypt(encrypted)
 ```
 
-#### OFB - Output Feedback
-
+#### CFB (Cipher Feedback)
 ```kotlin
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-val iv = "1234567890abcdef".toByteArray() // 16-byte initialization vector
-
-val cipher = Cipher.getInstance("AES/OFB/NoPadding")
-cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-
-val plaintext = "Hello, Kotlin AES!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(key, "AES"), IvParameterSpec(iv))
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+val cfb = ModeOfOperationCFB(key, iv, segmentSize = 8) // 8-bit segment size
+val encrypted = cfb.encrypt(plaintext)
+val decrypted = cfb.decrypt(encrypted)
 ```
 
-#### ECB - Electronic Codebook (NOT Recommended)
-
+#### OFB (Output Feedback)
 ```kotlin
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-
-val cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
-cipher.init(Cipher.ENCRYPT_MODE, SecretKeySpec(key, "AES"))
-
-val plaintext = "Hello, Kotlin AES!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, SecretKeySpec(key, "AES"))
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+val ofb = ModeOfOperationOFB(key, iv)
+val encrypted = ofb.encrypt(plaintext)
+val decrypted = ofb.decrypt(encrypted)
 ```
 
-
-### Block Cipher (Direct Usage)
-
-If you need to use the block cipher directly (e.g., for custom modes of operation), you can use the following:
-
+#### CTR (Counter)
 ```kotlin
-import javax.crypto.Cipher
-
-val key = "0123456789abcdef".toByteArray() // 128-bit key
-val secretKey = SecretKeySpec(key, "AES")
-
-val cipher = Cipher.getInstance("AES")
-cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-
-val plaintext = "ABlockIs16Bytes!".toByteArray()
-val encrypted = cipher.doFinal(plaintext)
-
-println("Encrypted: ${encrypted.joinToString("") { "%02x".format(it) }}")
-
-// Decrypt
-cipher.init(Cipher.DECRYPT_MODE, secretKey)
-val decrypted = cipher.doFinal(encrypted)
-println("Decrypted: ${String(decrypted)}")
+val counter = Counter("f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff".hexToBytes())
+val ctr = ModeOfOperationCTR(key, counter)
+val encrypted = ctr.encrypt(plaintext)
+val decrypted = ctr.decrypt(encrypted)
 ```
 
+### 3. PKCS#7 Padding
 
-## Notes
-
-### What is a Key?
-
-A key is essentially a "password" for encryption. However, AES requires the key to be a specific length: 128 bits (16 bytes), 192 bits (24 bytes), or 256 bits (32 bytes). If you have a password of arbitrary length, you should use a **Password-Based Key Derivation Function** (PBKDF) like PBKDF2 to generate a key of the correct length.
-
-Example:
-
+#### Pad Data
 ```kotlin
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.PBEKeySpec
-
-val password = "myPassword".toCharArray()
-val salt = "mySalt".toByteArray()
-val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256")
-val spec = PBEKeySpec(password, salt, 65536, 256) // 256-bit key
-val key = factory.generateSecret(spec).encoded
+val paddedData = pkcs7Pad(plaintext, 16) // Pad to 16-byte blocks
 ```
 
+#### Strip Padding
+```kotlin
+val strippedData = pkcs7Strip(paddedData)
+```
 
-### Performance
+### 4. Utility Functions
 
-For most use cases, the built-in `javax.crypto` implementation is sufficient and highly optimized. If you need additional performance or features, consider using BouncyCastle.
+#### Convert Bytes to Hex String
+```kotlin
+val hexString = bytesToHex(ciphertext)
+println("Hex: $hexString")
+```
 
+#### Convert Hex String to Bytes
+```kotlin
+val bytes = "2b7e151628aed2a6abf7158809cf4f3c".hexToBytes()
+```
 
-### Testing
+## Example
 
-To test your implementation, you can use known test vectors from sources like [NIST](https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program).
+Here’s a complete example of encrypting and decrypting data using AES in CBC mode:
 
+```kotlin
+fun main() {
+    val key = "2b7e151628aed2a6abf7158809cf4f3c".hexToBytes()
+    val iv = "000102030405060708090a0b0c0d0e0f".hexToBytes()
+    val plaintext = "Hello, AES!".toByteArray()
 
-### License
+    // Encrypt
+    val cbc = ModeOfOperationCBC(key, iv)
+    val ciphertext = cbc.encrypt(plaintext)
+    println("Encrypted: ${bytesToHex(ciphertext)}")
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+    // Decrypt
+    val decrypted = cbc.decrypt(ciphertext)
+    println("Decrypted: ${String(decrypted)}")
+}
+```
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- This library is a Kotlin port of the original [aes-js](https://github.com/ricmoo/aes-js) library by [ricmoo](https://github.com/ricmoo).
+- Special thanks to the contributors and maintainers of the original library.
