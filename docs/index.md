@@ -2,9 +2,6 @@
 
 A pure Kotlin implementation of the AES block cipher algorithm and all common modes of operation (CBC, CFB, CTR, ECB, and OFB).
 
-> \[!Note]
-> This repository is a Kotlin port of the original [codebase](https://github.com/ricmoo/aes-js).
-
 ## Features
 
 - Pure Kotlin (with no dependencies, or optional BouncyCastle for advanced use cases)
