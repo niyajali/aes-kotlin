@@ -1,0 +1,18 @@
+[versions]
+agp = "8.3.2"
+buffer = "1.4.2"
+kotlin = "2.1.0"
+bcv = "0.17.0"
+maven = "0.30.0"
+dokka = "2.0.0"
+
+[libraries]
+buffer = { module = "com.ditchoom:buffer", version.ref = "buffer" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+bcv = { id = 'org.jetbrains.kotlinx.binary-compatibility-validator', version.ref = 'bcv' }
+maven = { id = 'com.vanniktech.maven.publish', version.ref = 'maven' }
+dokka = { id = 'org.jetbrains.dokka', version.ref = 'dokka' }

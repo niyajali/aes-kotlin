@@ -1,0 +1,172 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm64, watchosSimulatorArm64, watchosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.niyajali:aes>
+final class com.niyaj.aes/AES { // com.niyaj.aes/AES|null[0]
+    constructor <init>(kotlin/ByteArray) // com.niyaj.aes/AES.<init>|<init>(kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/AES.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/AES.encrypt|encrypt(kotlin.ByteArray){}[0]
+
+    final object Companion // com.niyaj.aes/AES.Companion|null[0]
+}
+
+final class com.niyaj.aes/AESCipher { // com.niyaj.aes/AESCipher|null[0]
+    constructor <init>(com.niyaj.aes/BlockCipherMode) // com.niyaj.aes/AESCipher.<init>|<init>(com.niyaj.aes.BlockCipherMode){}[0]
+
+    final fun decrypt(kotlin/ByteArray, kotlin/Boolean = ...): kotlin/ByteArray // com.niyaj.aes/AESCipher.decrypt|decrypt(kotlin.ByteArray;kotlin.Boolean){}[0]
+    final fun encrypt(kotlin/ByteArray, kotlin/Boolean = ...): kotlin/ByteArray // com.niyaj.aes/AESCipher.encrypt|encrypt(kotlin.ByteArray;kotlin.Boolean){}[0]
+}
+
+final class com.niyaj.aes/AESEncryption { // com.niyaj.aes/AESEncryption|null[0]
+    constructor <init>(kotlin/ByteArray) // com.niyaj.aes/AESEncryption.<init>|<init>(kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/AESEncryption.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/AESEncryption.encrypt|encrypt(kotlin.ByteArray){}[0]
+
+    final object Companion // com.niyaj.aes/AESEncryption.Companion|null[0]
+}
+
+final class com.niyaj.aes/CBCMode : com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/CBCMode|null[0]
+    constructor <init>(com.niyaj.aes/AES, kotlin/ByteArray) // com.niyaj.aes/CBCMode.<init>|<init>(com.niyaj.aes.AES;kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CBCMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CBCMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/CFBMode : com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/CFBMode|null[0]
+    constructor <init>(com.niyaj.aes/AES, kotlin/ByteArray, kotlin/Int = ...) // com.niyaj.aes/CFBMode.<init>|<init>(com.niyaj.aes.AES;kotlin.ByteArray;kotlin.Int){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CFBMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CFBMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/CTRMode : com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/CTRMode|null[0]
+    constructor <init>(com.niyaj.aes/AES, kotlin/ByteArray) // com.niyaj.aes/CTRMode.<init>|<init>(com.niyaj.aes.AES;kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CTRMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/CTRMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/Counter { // com.niyaj.aes/Counter|null[0]
+    constructor <init>(kotlin/ByteArray) // com.niyaj.aes/Counter.<init>|<init>(kotlin.ByteArray){}[0]
+
+    final fun getBytes(): kotlin/ByteArray // com.niyaj.aes/Counter.getBytes|getBytes(){}[0]
+    final fun increment() // com.niyaj.aes/Counter.increment|increment(){}[0]
+}
+
+final class com.niyaj.aes/ECBMode : com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/ECBMode|null[0]
+    constructor <init>(com.niyaj.aes/AES) // com.niyaj.aes/ECBMode.<init>|<init>(com.niyaj.aes.AES){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ECBMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ECBMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/ModeOfOperationCBC { // com.niyaj.aes/ModeOfOperationCBC|null[0]
+    constructor <init>(kotlin/ByteArray, kotlin/ByteArray) // com.niyaj.aes/ModeOfOperationCBC.<init>|<init>(kotlin.ByteArray;kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCBC.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCBC.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/ModeOfOperationCFB { // com.niyaj.aes/ModeOfOperationCFB|null[0]
+    constructor <init>(kotlin/ByteArray, kotlin/ByteArray, kotlin/Int = ...) // com.niyaj.aes/ModeOfOperationCFB.<init>|<init>(kotlin.ByteArray;kotlin.ByteArray;kotlin.Int){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCFB.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCFB.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/ModeOfOperationCTR { // com.niyaj.aes/ModeOfOperationCTR|null[0]
+    constructor <init>(kotlin/ByteArray, com.niyaj.aes/Counter) // com.niyaj.aes/ModeOfOperationCTR.<init>|<init>(kotlin.ByteArray;com.niyaj.aes.Counter){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCTR.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationCTR.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/ModeOfOperationECB { // com.niyaj.aes/ModeOfOperationECB|null[0]
+    constructor <init>(kotlin/ByteArray) // com.niyaj.aes/ModeOfOperationECB.<init>|<init>(kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationECB.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationECB.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/ModeOfOperationOFB { // com.niyaj.aes/ModeOfOperationOFB|null[0]
+    constructor <init>(kotlin/ByteArray, kotlin/ByteArray) // com.niyaj.aes/ModeOfOperationOFB.<init>|<init>(kotlin.ByteArray;kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationOFB.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/ModeOfOperationOFB.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/OFBMode : com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/OFBMode|null[0]
+    constructor <init>(com.niyaj.aes/AES, kotlin/ByteArray) // com.niyaj.aes/OFBMode.<init>|<init>(com.niyaj.aes.AES;kotlin.ByteArray){}[0]
+
+    final fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/OFBMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    final fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/OFBMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+}
+
+final class com.niyaj.aes/SecureRandom { // com.niyaj.aes/SecureRandom|null[0]
+    constructor <init>() // com.niyaj.aes/SecureRandom.<init>|<init>(){}[0]
+
+    final fun nextBytes(kotlin/ByteArray) // com.niyaj.aes/SecureRandom.nextBytes|nextBytes(kotlin.ByteArray){}[0]
+}
+
+sealed class com.niyaj.aes/BlockCipherMode { // com.niyaj.aes/BlockCipherMode|null[0]
+    abstract fun decrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/BlockCipherMode.decrypt|decrypt(kotlin.ByteArray){}[0]
+    abstract fun encrypt(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/BlockCipherMode.encrypt|encrypt(kotlin.ByteArray){}[0]
+    final fun validateBlockSize(kotlin/ByteArray) // com.niyaj.aes/BlockCipherMode.validateBlockSize|validateBlockSize(kotlin.ByteArray){}[0]
+}
+
+final object com.niyaj.aes/AESUtils { // com.niyaj.aes/AESUtils|null[0]
+    final fun bytesToHex(kotlin/ByteArray): kotlin/String // com.niyaj.aes/AESUtils.bytesToHex|bytesToHex(kotlin.ByteArray){}[0]
+    final fun generateKey(kotlin/Int): kotlin/ByteArray // com.niyaj.aes/AESUtils.generateKey|generateKey(kotlin.Int){}[0]
+    final fun generateRandomIV(): kotlin/ByteArray // com.niyaj.aes/AESUtils.generateRandomIV|generateRandomIV(){}[0]
+    final fun hexToBytes(kotlin/String): kotlin/ByteArray // com.niyaj.aes/AESUtils.hexToBytes|hexToBytes(kotlin.String){}[0]
+}
+
+final object com.niyaj.aes/PKCS7 { // com.niyaj.aes/PKCS7|null[0]
+    final fun pad(kotlin/ByteArray, kotlin/Int = ...): kotlin/ByteArray // com.niyaj.aes/PKCS7.pad|pad(kotlin.ByteArray;kotlin.Int){}[0]
+    final fun unpad(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/PKCS7.unpad|unpad(kotlin.ByteArray){}[0]
+}
+
+final val com.niyaj.aes/expansionKeyFour // com.niyaj.aes/expansionKeyFour|{}expansionKeyFour[0]
+    final fun <get-expansionKeyFour>(): kotlin/LongArray // com.niyaj.aes/expansionKeyFour.<get-expansionKeyFour>|<get-expansionKeyFour>(){}[0]
+final val com.niyaj.aes/expansionKeyOne // com.niyaj.aes/expansionKeyOne|{}expansionKeyOne[0]
+    final fun <get-expansionKeyOne>(): kotlin/LongArray // com.niyaj.aes/expansionKeyOne.<get-expansionKeyOne>|<get-expansionKeyOne>(){}[0]
+final val com.niyaj.aes/expansionKeyThree // com.niyaj.aes/expansionKeyThree|{}expansionKeyThree[0]
+    final fun <get-expansionKeyThree>(): kotlin/LongArray // com.niyaj.aes/expansionKeyThree.<get-expansionKeyThree>|<get-expansionKeyThree>(){}[0]
+final val com.niyaj.aes/expansionKeyTwo // com.niyaj.aes/expansionKeyTwo|{}expansionKeyTwo[0]
+    final fun <get-expansionKeyTwo>(): kotlin/LongArray // com.niyaj.aes/expansionKeyTwo.<get-expansionKeyTwo>|<get-expansionKeyTwo>(){}[0]
+final val com.niyaj.aes/inverseSBoxKey // com.niyaj.aes/inverseSBoxKey|{}inverseSBoxKey[0]
+    final fun <get-inverseSBoxKey>(): kotlin/LongArray // com.niyaj.aes/inverseSBoxKey.<get-inverseSBoxKey>|<get-inverseSBoxKey>(){}[0]
+final val com.niyaj.aes/rconKey // com.niyaj.aes/rconKey|{}rconKey[0]
+    final fun <get-rconKey>(): kotlin/LongArray // com.niyaj.aes/rconKey.<get-rconKey>|<get-rconKey>(){}[0]
+final val com.niyaj.aes/sBoxKey // com.niyaj.aes/sBoxKey|{}sBoxKey[0]
+    final fun <get-sBoxKey>(): kotlin/LongArray // com.niyaj.aes/sBoxKey.<get-sBoxKey>|<get-sBoxKey>(){}[0]
+final val com.niyaj.aes/transformationKeyEight // com.niyaj.aes/transformationKeyEight|{}transformationKeyEight[0]
+    final fun <get-transformationKeyEight>(): kotlin/LongArray // com.niyaj.aes/transformationKeyEight.<get-transformationKeyEight>|<get-transformationKeyEight>(){}[0]
+final val com.niyaj.aes/transformationKeyFive // com.niyaj.aes/transformationKeyFive|{}transformationKeyFive[0]
+    final fun <get-transformationKeyFive>(): kotlin/LongArray // com.niyaj.aes/transformationKeyFive.<get-transformationKeyFive>|<get-transformationKeyFive>(){}[0]
+final val com.niyaj.aes/transformationKeyFour // com.niyaj.aes/transformationKeyFour|{}transformationKeyFour[0]
+    final fun <get-transformationKeyFour>(): kotlin/LongArray // com.niyaj.aes/transformationKeyFour.<get-transformationKeyFour>|<get-transformationKeyFour>(){}[0]
+final val com.niyaj.aes/transformationKeyOne // com.niyaj.aes/transformationKeyOne|{}transformationKeyOne[0]
+    final fun <get-transformationKeyOne>(): kotlin/LongArray // com.niyaj.aes/transformationKeyOne.<get-transformationKeyOne>|<get-transformationKeyOne>(){}[0]
+final val com.niyaj.aes/transformationKeySeven // com.niyaj.aes/transformationKeySeven|{}transformationKeySeven[0]
+    final fun <get-transformationKeySeven>(): kotlin/LongArray // com.niyaj.aes/transformationKeySeven.<get-transformationKeySeven>|<get-transformationKeySeven>(){}[0]
+final val com.niyaj.aes/transformationKeySix // com.niyaj.aes/transformationKeySix|{}transformationKeySix[0]
+    final fun <get-transformationKeySix>(): kotlin/LongArray // com.niyaj.aes/transformationKeySix.<get-transformationKeySix>|<get-transformationKeySix>(){}[0]
+final val com.niyaj.aes/transformationKeyThree // com.niyaj.aes/transformationKeyThree|{}transformationKeyThree[0]
+    final fun <get-transformationKeyThree>(): kotlin/LongArray // com.niyaj.aes/transformationKeyThree.<get-transformationKeyThree>|<get-transformationKeyThree>(){}[0]
+final val com.niyaj.aes/transformationKeyTwo // com.niyaj.aes/transformationKeyTwo|{}transformationKeyTwo[0]
+    final fun <get-transformationKeyTwo>(): kotlin/LongArray // com.niyaj.aes/transformationKeyTwo.<get-transformationKeyTwo>|<get-transformationKeyTwo>(){}[0]
+
+final fun (kotlin.collections/List<kotlin/ByteArray>).com.niyaj.aes/flatten(): kotlin/ByteArray // com.niyaj.aes/flatten|flatten@kotlin.collections.List<kotlin.ByteArray>(){}[0]
+final fun (kotlin/ByteArray).com.niyaj.aes/chunked(kotlin/Int): kotlin.collections/List<kotlin/ByteArray> // com.niyaj.aes/chunked|chunked@kotlin.ByteArray(kotlin.Int){}[0]
+final fun com.niyaj.aes/bytesToHex(kotlin/ByteArray): kotlin/String // com.niyaj.aes/bytesToHex|bytesToHex(kotlin.ByteArray){}[0]
+final fun com.niyaj.aes/encryptAes(kotlin/String): kotlin/String // com.niyaj.aes/encryptAes|encryptAes(kotlin.String){}[0]
+final fun com.niyaj.aes/encryptAesEcb(kotlin/String): kotlin/String // com.niyaj.aes/encryptAesEcb|encryptAesEcb(kotlin.String){}[0]
+final fun com.niyaj.aes/pkcs7Pad(kotlin/ByteArray, kotlin/Int): kotlin/ByteArray // com.niyaj.aes/pkcs7Pad|pkcs7Pad(kotlin.ByteArray;kotlin.Int){}[0]
+final fun com.niyaj.aes/pkcs7Strip(kotlin/ByteArray): kotlin/ByteArray // com.niyaj.aes/pkcs7Strip|pkcs7Strip(kotlin.ByteArray){}[0]
