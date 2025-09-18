@@ -34,7 +34,7 @@ This repository provides a Kotlin implementation of the **Advanced Encryption St
 Add the following dependency to your `build.gradle.kts` file:
 
 ```kotlin
-implementation("io.github.niyajali:aes-kotlin:1.0.0")
+implementation("io.github.niyajali:aes-kotlin:1.0.1")
 ```
 
 ## Usage
