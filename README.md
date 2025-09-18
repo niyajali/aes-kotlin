@@ -3,6 +3,8 @@
 # AES Encryption in Kotlin
 Enjoy secure encryption with AES in Kotlin! 🚀
 
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.niyajali/aes-kotlin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.niyajali%22%20AND%20a:%22aes-kotlin%22)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7f52ff?style=flat-square&logo=kotlin&logoColor=white)
 ![Kotlin Multiplatform](https://img.shields.io/badge/Kotlin%20Multiplatform-4c8d3f?style=flat-square&logo=kotlin&logoColor=white)
 
