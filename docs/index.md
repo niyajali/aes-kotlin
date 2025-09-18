@@ -1,4 +1,4 @@
-# AES-Kotlin
+# AES-Kotlin [![Maven Central](https://img.shields.io/maven-central/v/io.github.niyajali/aes-kotlin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.niyajali%22%20AND%20a:%22aes-kotlin%22)
 
 A pure Kotlin implementation of the AES block cipher algorithm and all common modes of operation (CBC, CFB, CTR, ECB, and OFB).
 
@@ -17,7 +17,7 @@ Add the following to your `build.gradle.kts` file:
 
 ```kotlin
 dependencies {
-    implementation("io.github.niyajali:aes-kotlin:1.0.0")
+    implementation("io.github.niyajali:aes-kotlin:1.0.1")
 }
 ```
 
