@@ -64,17 +64,17 @@ class AESEncryption(key: ByteArray) {
                 i++
                 t++
             }
+        }
 
-            for (r in 1 until rounds) {
-                for (c in 0 until 4) {
-                    tt = decryptionKeys[r][c]
-                    decryptionKeys[r][c] = (
-                            U1[((tt shr 24) and 0xFF).toInt()] xor
-                                    U2[((tt shr 16) and 0xFF).toInt()] xor
-                                    U3[((tt shr 8) and 0xFF).toInt()] xor
-                                    U4[(tt and 0xFF).toInt()]
-                            )
-                }
+        for (r in 1 until rounds) {
+            for (c in 0 until 4) {
+                val temp = decryptionKeys[r][c]
+                decryptionKeys[r][c] = (
+                        U1[((temp shr 24) and 0xFF).toInt()] xor
+                                U2[((temp shr 16) and 0xFF).toInt()] xor
+                                U3[((temp shr 8) and 0xFF).toInt()] xor
+                                U4[(temp and 0xFF).toInt()]
+                        )
             }
         }
     }
